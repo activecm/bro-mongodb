@@ -1,4 +1,4 @@
-module RITAWriter;
+module MongodbWriter;
 
 export {
     # The MongoDB URI contains information on how to contact a MongoDB Server
@@ -11,7 +11,6 @@ export {
     const DB            = "BRO-IMPORT" &redef;
 
     # ROTATE turns on database rotation similar to that of Bro's ASCII log writer.
-    # Use this option when running RITA each night.
     const ROTATE        = "false" &redef;
 
 
@@ -42,7 +41,7 @@ event bro_init()
                        ["verifyCert"] = VERIFY_CERT,
                        ["clientCert"] = CLIENT_CERT
                    ),
-        $writer=Log::WRITER_RITA
+        $writer=Log::WRITER_MONGODB
     ];
 
     Log::add_filter(HTTP::LOG, copy(mongoFilter));

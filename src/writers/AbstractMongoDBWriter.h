@@ -23,9 +23,9 @@ namespace plugin {
             virtual bool Rotate();
 
         protected:
-            bool CreateMetaEntry(const std::string &targetDB);
+            //bool CreateMetaEntry(const std::string &targetDB);
 
-            bool IndexLogCollection(const std::string& targetDB, const std::string & targetCollection);
+            //bool IndexLogCollection(const std::string& targetDB, const std::string & targetCollection);
             std::shared_ptr<const mongocxx::client> client;
         };
     }

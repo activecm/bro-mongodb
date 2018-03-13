@@ -19,8 +19,7 @@ bool RotatedBufferedMongoDBWriter::Rotate() {
         return false;
     }
     this->buffer.targetDB = GenRotatedDBName(this->targetDBBase);
-    return CreateMetaEntry(this->buffer.targetDB) &&
-           this->IndexLogCollection(this->buffer.targetDB, this->buffer.targetCollection);
+    return true;
 }
 
 std::string RotatedBufferedMongoDBWriter::GenRotatedDBName(const std::string& targetDBBase) {

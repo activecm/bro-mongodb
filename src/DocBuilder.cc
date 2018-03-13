@@ -27,7 +27,7 @@ void DocBuilder::addField(const threading::Field *const field, const threading::
             case TYPE_TIME:
             case TYPE_INTERVAL:
                 if (tag == "ts") {
-                    //idiosyncrasy with RITA: timestamps are integers
+                    //idiosyncrasy with upstream RITA: timestamps are integers
                     builder << tag << bsoncxx::types::b_int64{0};
                 } else {
                     builder << tag << bsoncxx::types::b_double{0.0};
@@ -80,7 +80,7 @@ void DocBuilder::addField(const threading::Field *const field, const threading::
         case TYPE_TIME:
         case TYPE_INTERVAL:
             if (tag == "ts") {
-                //idiosyncrasy with RITA: timestamps are integers
+                //idiosyncrasy with upstream RITA: timestamps are integers
                 builder << tag << bsoncxx::types::b_int64{(int64)value->val.double_val};
             } else {
                 builder << tag << bsoncxx::types::b_double{value->val.double_val};
@@ -172,7 +172,6 @@ void DocBuilder::addArrayField(bsoncxx::builder::stream::array & arr, const thre
             case TYPE_COUNT:
             case TYPE_COUNTER:
                 //THIS IS LARGE PROBLEM FIX
-                //TODO: Inspect RITA
                 arr << bsoncxx::types::b_int64{(int64)value->val.uint_val};
                 break;
             case TYPE_DOUBLE:

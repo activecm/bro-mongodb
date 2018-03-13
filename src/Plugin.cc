@@ -9,10 +9,10 @@ using namespace plugin::OCMDev_MongoDBWriter;
 
 
 plugin::Configuration Plugin::Configure() {
-    AddComponent(new ::logging::Component("RITA", MongoDBWriterBackend::Instantiate));
+    AddComponent(new ::logging::Component("Mongodb", MongoDBWriterBackend::Instantiate));
     plugin::Configuration config;
     config.name = PLUGIN_NAME;
-    config.description = "RITA, Bro IDS connector.";
+    config.description = "Bro IDS/Mongodb connector";
     config.version.major = PLUGIN_MAJOR;
     config.version.minor = PLUGIN_MINOR;
     return config;

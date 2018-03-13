@@ -1,7 +1,7 @@
 
 cmake_minimum_required(VERSION 3.1)
 
-project(BroPluginRITAWriter)
+project(BroPluginMongoDBWriter)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -23,7 +23,7 @@ include_directories("/usr/local/lib")
 link_directories(${LIBMONGOCXX_LIBRARY_DIRS})
 link_directories(${LIBBSONCXX_LIBRARY_DIRS})
 
-bro_plugin_begin(OCMDev RITAWriter)
+bro_plugin_begin(OCMDev MongoDBWriter)
 bro_plugin_cc(src/writers/MongoDBBuffer.cc)
 bro_plugin_cc(src/writers/AbstractMongoDBWriter.cc)
 bro_plugin_cc(src/writers/BufferedMongoDBWriter.cc)

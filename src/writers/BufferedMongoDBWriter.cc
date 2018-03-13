@@ -14,11 +14,6 @@ BufferedMongoDBWriter::BufferedMongoDBWriter(const std::shared_ptr<const mongocx
     AbstractMongoDBWriter{client}, buffer{std::move(targetDB), std::move(logCollection)} {
 }
 
-bool BufferedMongoDBWriter::Init() {
-    return this->CreateMetaEntry(this->buffer.targetDB) &&
-            this->IndexLogCollection(this->buffer.targetDB, this->buffer.targetCollection);
-}
-
 bool BufferedMongoDBWriter::Write(bsoncxx::document::value document) {
     if (buffer.Full() && !this->buffer.Flush(*this->client)) {
         return false;

@@ -18,7 +18,6 @@ namespace plugin {
                                            std::string targetDB,
                                            std::string logCollection);
 
-            bool Init() override;
 
             bool Write(bsoncxx::document::value document) override;
 
