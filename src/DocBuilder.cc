@@ -26,12 +26,7 @@ void DocBuilder::addField(const threading::Field *const field, const threading::
             case TYPE_DOUBLE:
             case TYPE_TIME:
             case TYPE_INTERVAL:
-                if (tag == "ts") {
-                    //idiosyncrasy with upstream RITA: timestamps are integers
-                    builder << tag << bsoncxx::types::b_int64{0};
-                } else {
                     builder << tag << bsoncxx::types::b_double{0.0};
-                }
                 break;
             case TYPE_ADDR:
             case TYPE_SUBNET:
@@ -79,12 +74,7 @@ void DocBuilder::addField(const threading::Field *const field, const threading::
         case TYPE_DOUBLE:
         case TYPE_TIME:
         case TYPE_INTERVAL:
-            if (tag == "ts") {
-                //idiosyncrasy with upstream RITA: timestamps are integers
-                builder << tag << bsoncxx::types::b_int64{(int64)value->val.double_val};
-            } else {
                 builder << tag << bsoncxx::types::b_double{value->val.double_val};
-            }
             break;
         case TYPE_PORT:
             builder << tag << bsoncxx::types::b_int32{(int)value->val.port_val.port};
