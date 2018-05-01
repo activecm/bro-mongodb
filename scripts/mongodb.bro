@@ -44,8 +44,8 @@ event bro_init()
         $writer=Log::WRITER_MONGODB
     ];
 
-    Log::add_filter(HTTP::LOG, copy(mongoFilter));
-    Log::add_filter(Conn::LOG, copy(mongoFilter));
-    Log::add_filter(DNS::LOG, copy(mongoFilter));
-
+    for (stream_id in Log::active_streams)
+  	{
+        Log::add_filter(stream_id, copy(mongoFilter));
+    }
 }
