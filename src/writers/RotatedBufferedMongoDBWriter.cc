@@ -16,8 +16,10 @@ RotatedBufferedMongoDBWriter::RotatedBufferedMongoDBWriter(const std::shared_ptr
 
 bool RotatedBufferedMongoDBWriter::Rotate() {
     if(!Flush()) {
+        InternalWarning("Unable to flush buffer during Database Rotation.");
         return false;
     }
+
     this->buffer.targetDB = GenRotatedDBName(this->targetDBBase);
     return true;
 }
