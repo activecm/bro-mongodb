@@ -53,7 +53,7 @@ void DocBuilder::addField(const threading::Field *const field, const threading::
             case TYPE_OPAQUE:
             case TYPE_TYPE:
             case TYPE_ERROR:
-                InternalWarning("Encountered Unhandled Brotype");
+                reporter.InternalWarning("Encountered Unhandled Brotype");
                 break;
         }
         return;
@@ -143,7 +143,7 @@ void DocBuilder::addField(const threading::Field *const field, const threading::
         case TYPE_OPAQUE:
         case TYPE_TYPE:
         case TYPE_ERROR:
-                        InternalWarning("Encountered Unhandled Brotype");
+                        reporter.InternalWarning("Encountered Unhandled Brotype");
                         break;
     }
 }
@@ -228,7 +228,7 @@ void DocBuilder::addArrayField(bsoncxx::builder::stream::array & arr, const thre
             case TYPE_OPAQUE:
             case TYPE_TYPE:
             case TYPE_ERROR:
-                             InternalWarning("Encountered Unhandled Brotype");
+                             reporter.InternalWarning("Encountered Unhandled Brotype");
                              break;
         }
     }

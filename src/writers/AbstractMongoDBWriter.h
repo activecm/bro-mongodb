@@ -8,6 +8,8 @@
 #include <bsoncxx/document/value.hpp>
 #include <mongocxx/client.hpp>
 #include <memory>
+#include "Reporter.h"
+
 namespace plugin {
     namespace ActiveCM_MongoDBWriter {
         class AbstractMongoDBWriter {
@@ -27,6 +29,7 @@ namespace plugin {
 
             //bool IndexLogCollection(const std::string& targetDB, const std::string & targetCollection);
             std::shared_ptr<const mongocxx::client> client;
+            Reporter reporter;
         };
     }
 }
